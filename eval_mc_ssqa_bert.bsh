@@ -1,0 +1,18 @@
+export SSQA_DIR=/workspace/danclee/_myPython/task.SSQA.MC/dataset/ssqa_data/SSQA.TW.MC
+export MODEL_DIR=/workspace/danclee/_myPython/task.SSQA.MC/models/ssqa_base
+python ./baseline/run_multiple_choice.py \
+--model_type bert \
+--task_name ssqa \
+--model_name_or_path $MODEL_DIR \
+--do_test \
+--do_lower_case \
+--data_dir $SSQA_DIR \
+--learning_rate 5e-5 \
+--num_train_epochs 3 \
+--max_seq_length 300 \
+--output_dir models/ssqa_base \
+--per_gpu_eval_batch_size=4 \
+--per_gpu_train_batch_size=4 \
+--gradient_accumulation_steps 2 \
+--overwrite_output
+

@@ -1,0 +1,19 @@
+export SSQA_DIR=/workspace/danclee/_myPython/task.SSQA.MC/dataset/Lin_SE1+SE2/SSQA.TW.MC.Neg
+python ./baseline/run_multiple_choice_neg.py \
+--model_type bert \
+--task_name ssqa \
+--model_name_or_path bert-base-chinese \
+--do_train \
+--do_eval \
+--do_test \
+--do_lower_case \
+--data_dir $SSQA_DIR \
+--learning_rate 5e-5 \
+--num_train_epochs 3 \
+--max_seq_length 300 \
+--output_dir models/ssqa_neg\
+--per_gpu_eval_batch_size=4 \
+--per_gpu_train_batch_size=4 \
+--gradient_accumulation_steps 2 \
+--overwrite_output
+
